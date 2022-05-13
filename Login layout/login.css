@@ -1,0 +1,133 @@
+body {
+    
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: bisque;
+}
+
+#Login .container h2,
+#Signup .container h2 
+{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+#Login .container .signup, 
+#Signup .container .signup 
+{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: medium;
+}
+
+/* Full-width input fields */
+#Login input[type=text],
+#Signup input[type=text]
+{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons inside the Login DIV */
+#Login [type=login],
+#Signup [type=signup] 
+{
+  background-color:blueviolet;
+  color: white;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: thin;
+  cursor: pointer;
+  font-weight: normal;
+  width: 100%;
+  font-weight: bold;
+}
+/* buttons for the social media area */
+#Login .socialMedia button,
+#Signup .socialMedia button 
+{
+  background-color: white;
+  color: black;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border-radius: 20px;
+  border-style:solid;
+  border-width: thin;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+}
+/* Extra styles for the cancel button */
+#Login .cancel_button,
+#Signup .cancel_button 
+{
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+#Login .container,
+#Signup .container 
+{
+  padding: 20px;
+}
+
+#Login span.psw,
+#Signup span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Login */
+#Login, 
+#Signup 
+{
+  display: none; 
+  position:fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
+
+/* Login Content/Box */
+#Login .modal-content,
+#Signup .modal-content 
+{
+  background-color: white;
+  margin: 5% auto 15% auto; 
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+
+
+/** Normal button style **/
+button {
+    background-color: cornflowerblue;
+    border-radius: 16px;
+    border-style: solid;
+    border-width: thin;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    width: 50%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
