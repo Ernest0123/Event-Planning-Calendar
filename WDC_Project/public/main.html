@@ -65,117 +65,133 @@
 
   <div id="Login" class="modal">
 
+    <div id="Login" class="modal">
+      <form class="modal-content">
 
-    <form class="modal-content">
+          <div class="container">
 
+          <div class="row">
 
-    <div class="container">
+          <!-- Manually Login area -->
+          <h2 style="text-align: center;">Login to WDC Social Event System</h2>
 
-        <!-- Headings -->
-        <h2>Login to WDC Social Event System (Login version) </h2>
-        <p class="signup" onclick="showSignup()">New around here? Create an account. <a href="#">Join Us!</a></p>
-        <!-- Username -->
-        Username: <br />
-        <input type="text" name="username" placeholder="Email or Username" required>
+          <!-- User information (Login) -->
+          <div class="col">
 
-        <!-- Password-->
-        Password:<br />
-        <input type="text" name="password" placeholder="Password" required>
+              <input type="text" name="username" placeholder="Username">
+              <input type="password" name="password" placeholder="Password">
+              <input type="submit" name="Login" onclick="login()">
 
-        <!-- This will be used later when writing SESSIONS, tick=save_sessions, untick=not_save_sessions -->
-        <label>
-            <p>
-            <input type="checkbox" checked="checked" name="remember-session">Remember Me
-            </p>
-        </label>
+          </div>
 
-        <!-- Actual button to the send data to verify whether users exists-->
-        <button class="loginbutton" type="login">Login</button>
+          <hr />
 
-        <hr />
-        <!-- Login with Social Media -->
-        <div class="socialMedia">
-            <button class="loginbutton">Continue with Google</button>
-            <button class="loginbutton">Continue with Facebook</button>
-        </div>
+          <!-- Using Social Media to Login -->
+          <div class="col">
+              <!-- Facebook -->
+              <a href="#" class="fb btn">
+              <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+              </a>
 
-    </div>
+              <!-- Twitter -->
+              <a href="#" class="twitter btn">
+                  <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+              </a>
 
-    <div class="container" style="background-color:#f1f1f1">
-
-        <button onclick="returnMain()" class="loginbutton cancel_button">Cancel</button>
-        <span class="psw"><a href="#">Forgot Password?</a></span>
-
-    </div>
-
-    </form>
-</div>
+              <!-- Google -->
+              <div class="g-signin2" data-onsuccess="onSignIn">Login with Google</div>
+          </div>
+      </div>
+          </div>
 
 
+          <!-- The column below will be for signing up / Return to Main page -->
+          <div class="bottom-container">
+              <div class="row">
+
+                  <div class="col">
+
+                      <!-- Sign up area -->
+                      <div class="col">
+                          <a href="#" style="color: white;" class="btn" onclick="showSignup()">Sign up</a>
+                      </div>
+
+                       <!-- Return main page -->
+                       <div class="col">
+                          <a href="#" style="color: white;" class="btn" onclick="returnMain()">Cancel</a>
+                      </div>
+
+                       <!-- Logout area -->
+                       <div class="col">
+                          <a href="#login.html" style="color: white;" class="btn" onclick="logout()">Logout</a>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+
+      </form>
+  </div>
+
+  <!-- Sign up page (Hidden)-->
+  <div id="Signup" class="modal">
+      <form class="modal-content">
+
+          <div class="container">
+
+          <div class="row">
+
+          <!-- Manually Login area -->
+          <h2 style="text-align: center;">Signup to WDC Social Event System</h2>
+
+          <!-- User information (Login) -->
+          <div class="col">
+
+            <input type="text" name="email" placeholder="Email">
+            <input type="text" name="last_name" placeholder="Last Name">
+            <input type="text" name="first_name" placeholder="First Name">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <input type="checkbox" checked="checked" name="agree-term">By continuing I agree to 2022 WDC's
+            <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+
+            <input type="submit" name="Create">
+
+          </div>
+
+          <hr />
+      </div>
+          </div>
+
+          <!-- The column below will be for signing up / Return to Main page -->
+          <div class="bottom-container">
+              <div class="row">
+
+                  <div class="col">
+
+                      <!-- Sign up area -->
+                      <div class="col">
+                          <a href="#" style="color: white;" class="btn" onclick="showLogin()">Back to Login</a>
+                      </div>
+
+                       <!-- Return main page -->
+                       <div class="col">
+                          <a href="#" style="color: white;" class="btn" onclick="returnMain()">Cancel</a>
+                      </div>
+
+                       <!-- Logout area -->
+                       <div class="col">
+                          <a href="#" style="color: white;" class="btn">Logout</a>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+
+      </form>
+  </div>
 
 
-<div id="Signup" class="modal">
-
-
-    <form class="modal-content">
-
-        <div class="container">
-
-        <!-- Headings -->
-        <h2>Login to WDC Social Event System (Signup Version) </h2>
-        <p class="signup" onclick="showLogin()">Already have an account? <a href="#">Sign in!</a> </p>
-
-        <!-- Email -->
-        Email: <br />
-        <input type="text" name="email" placeholder="Email" required>
-
-        <!-- Last Name -->
-        Last Name: <br />
-        <input type="text" name="last_name" placeholder="Last Name" required>
-
-        <!-- First Name -->
-        First Name: <br />
-        <input type="text" name="first_name" placeholder="First Name" required>
-
-        <!-- Username -->
-        Username: <br />
-        <input type="text" name="username" placeholder="Username" required>
-
-        <!-- Password-->
-        Password:<br />
-        <input type="text" name="password" placeholder="Password" required>
-
-
-        <!-- This will be used later when writing SESSIONS, tick=save_sessions, untick=not_save_sessions -->
-        <label>
-            <p>
-                <input type="checkbox" checked="checked" name="remember-session">Remember Me
-            </p>
-            <p>
-                <input type="checkbox" checked="checked" name="agree-term">By continuing I agree to 2022 WDC's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
-            </p>
-        </label>
-
-        <!-- Actual button to the send data to verify whether users exists-->
-        <button class="loginbutton" type="signup">Create Account</button>
-
-        <hr />
-        <!-- Login with Social Media -->
-        <div class="socialMedia">
-            <button class="loginbutton">Continue with Google</button>
-            <button class="loginbutton">Continue with Facebook</button>
-        </div>
-
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-
-        <button onclick="returnMain()" class="loginbutton cancel_button">Cancel</button>
-        <span class="psw"><a href="#">Forgot Password?</a></span>
-
-    </div>
-    </form>
-</div>
 
 </body>
 
