@@ -101,9 +101,9 @@ a {
 
 .copyright{
     text-align:center;
-}\
+}
 
-/Header/
+/* /Header/ */
 li {
     float: right;
 }
