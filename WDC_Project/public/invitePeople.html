@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Invite People popup</title>
+        <meta charset="utf-8">
+
+         <!--Auto adjust screen size -->
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+         <!-- CSS area -->
+         <link rel="stylesheet" type="text/css" href="login.css">
+ 
+         <!-- Vue script-->
+         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+        <!-- Own script -->
+        <script src="login.js" defer></script>
+ 
+    </head>
+
+    <body>
+
+        <h1>This is the main page </h1>
+        <button onclick="showLogin()">Press Me to choose number of guests to add </button>
+
+        <div id="Invite" class="modal">
+    
+            
+            <form class="modal-content">
+        
+
+            <div class="container">
+
+                <h2>Invite People</h2>
+
+                <p>Email List: </p>
+
+                <label for="guests">Choose to add number of guests: </label>
+                <select name="guests" id="guests">
+
+                 
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                </select>
+                <div class="Email_List">
+                <input type="text" name="email" placeholder="Email" required>
+                <input type="text" name="email" placeholder="Email" required>
+                <input type="text" name="email" placeholder="Email" required>
+                <input type="text" name="email" placeholder="Email" required>
+
+                </div>
+
+                <button>Cancel</button>
+                <button>Save</button>
+
+            </form>
+        </div>
+
+    </body>
+</html>
