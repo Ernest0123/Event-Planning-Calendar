@@ -245,4 +245,8 @@ router.post('/logout', function(req, res, next) {
   res.send();
 });
 
+router.get('/requsrinfo', function(req,res,next){
+  asdf
+});
+
 module.exports = router;
