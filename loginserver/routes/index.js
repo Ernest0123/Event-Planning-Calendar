@@ -281,6 +281,8 @@ router.get('/amiin', function(req,res,next){
       var returnmsg = req.session.user.username;
       res.send(returnmsg);
     });
+  } else {
+    res.sendStatus(404);
   }
 });
 
