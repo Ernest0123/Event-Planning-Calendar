@@ -207,7 +207,7 @@ router.post('/signup', function(req, res, next) {
         // Username + Password --> working fine
         if (rows.length > 0) {
           console.log("Insert Username, Password, Email, names are ALL CORRECT!!!");
-          req.session.user = rows[0];
+          req.session.user = rows[0];whyh
           res.sendStatus(200);
         }
         // either the typed-in usename / password is correct
