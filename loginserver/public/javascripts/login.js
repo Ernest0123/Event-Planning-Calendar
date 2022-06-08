@@ -89,8 +89,7 @@ function updatenameemail(){
         }
     };
     xhttp.open("GET", "/requsrinfo",true);
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send(JSON.s)
+    xhttp.send();
 }
 
 // Sign up functions!!!!!!
