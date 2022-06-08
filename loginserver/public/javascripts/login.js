@@ -83,8 +83,8 @@ function updatenameemail(){
     xhttp.onreadystatechange = function (){
         if (this.readyState == 4 && this.status == 200){
             nameemail = JSON.parse(this.responseText);
-            document.getElementById("usrrealname").innerHTML = nameemail.firstname;
-            document.getElementById("usremailaddr").innerHTML = nameemail.email;
+            document.getElementById("usrrealname").innerHTML = nameemail[0].firstname;
+            document.getElementById("usremailaddr").innerHTML = nameemail[0].email;
         } else if (this.readyState == 4 && this.status >=400){
             alert("update failed");
         }
