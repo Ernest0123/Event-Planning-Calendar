@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 var nodemailer=require("nodemailer");
 var mysql = require('mysql');
+var session = require('express-session');
 var dbConnectionPool = mysql.createPool({
     host: '127.0.0.1',
     database: 'WDCproject',
