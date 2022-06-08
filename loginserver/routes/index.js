@@ -249,6 +249,7 @@ router.get('/requsrinfo', function(req,res,next){
   if ('user' in req.session) {
     req.pool.getConnection( function(error,connection){
       if(error) {
+          console.log(error);
           res.sendStatus(500);
           return;
       }
@@ -256,6 +257,7 @@ router.get('/requsrinfo', function(req,res,next){
     connection.query(query, req.session.user, function(error, rows, fields){
       connection.release();
       if (error) {
+        console.log(error);
         res.sendStatus(500);
         return;
       }
