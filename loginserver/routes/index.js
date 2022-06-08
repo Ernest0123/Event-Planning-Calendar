@@ -247,7 +247,7 @@ router.post('/logout', function(req, res, next) {
 
 router.get('/requsrinfo', function(req,res,next){
   if ('user' in req.session) {
-    console.log("User DELETED");
+    connection.query(query, )
   }  else {
     res.sendStatus(404);
   }
