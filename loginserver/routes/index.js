@@ -261,6 +261,7 @@ router.get('/requsrinfo', function(req,res,next){
         res.sendStatus(500);
         return;
       }
+      console.log(rows);
       res.json(rows);
     });
   });
