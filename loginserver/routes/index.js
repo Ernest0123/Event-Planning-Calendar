@@ -252,8 +252,8 @@ router.get('/requsrinfo', function(req,res,next){
           res.sendStatus(500);
           return;
       }
-    var query = `SELECT first_name, last_name, email FROM users WHERE ;`;
-    connection.query(query, function(error, rows, fields){
+    var query = `SELECT first_name, last_name, email FROM users WHERE username = ?;`;
+    connection.query(query, req.session.user, function(error, rows, fields){
       connection.release();
       if (error) {
         res.sendStatus(500);
