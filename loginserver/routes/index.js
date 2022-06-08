@@ -246,7 +246,11 @@ router.post('/logout', function(req, res, next) {
 });
 
 router.get('/requsrinfo', function(req,res,next){
-  asdf
+  if ('user' in req.session) {
+    console.log("User DELETED");
+  }  else {
+    res.sendStatus(404);
+  }
 });
 
 module.exports = router;
