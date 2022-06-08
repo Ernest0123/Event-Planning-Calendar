@@ -17,8 +17,6 @@ var dbConnectionPool = mysql.createPool( {host: 'localhost', database: 'users' }
 
 var app = express();
 
-
-
 // order does matter!!!
 app.use(function(req, res, next) {
 
