@@ -247,6 +247,7 @@ router.post('/logout', function(req, res, next) {
 
 router.get('/requsrinfo', function(req,res,next){
   if ('user' in req.session) {
+    var query = `SELECT first_name, last_name FROM actor;`;
     connection.query(query, )
   }  else {
     res.sendStatus(404);
