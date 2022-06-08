@@ -14,12 +14,12 @@ router.get('/', function(req, res, next) {
 
 
 
-let users = {
-  Ernest: { username: "Ernest", password: "Ernest123" },
-  Dale: { username: "Dale", password: "123456" },
-  Jennifer: { username: "Jennifer", password: "123456" },
-  Alexandra: { username: "Alexandra", password: "123456" }
-};
+// let users = {
+//   Ernest: { username: "Ernest", password: "Ernest123" },
+//   Dale: { username: "Dale", password: "123456" },
+//   Jennifer: { username: "Jennifer", password: "123456" },
+//   Alexandra: { username: "Alexandra", password: "123456" }
+// };
 
 // --> testing for sessions
 router.get('/test', function(req, res, next) {
