@@ -270,4 +270,16 @@ router.get('/requsrinfo', function(req,res,next){
   }
 });
 
+router.get('/amiin', function(req,res,next){
+  if ('user' in req.session){
+    req.pool.getConnection( function (error, connection){
+      if(error) {
+        console.log(error);
+        res.sendStatus(500);
+        return;
+      }
+      var return = req.session.user.username;
+    })
+  }
+})
 module.exports = router;

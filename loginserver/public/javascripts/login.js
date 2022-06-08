@@ -1,5 +1,16 @@
 function usernamecheck() {
-    
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function (){
+        if (this.readyState == 4 && this.status == 200){
+            uusername = JSON.parse(this.responseText);
+            document.getElementById("usrname").innerHTML = uusername[0].username;
+        } else {
+            document.getElementById("usrname").innerHTML = "guest";
+        }
+    };
+    xhttp.open("GET", "/amiin",true);
+    xhttp.send();
 }
 
 // Show Login Pagw
