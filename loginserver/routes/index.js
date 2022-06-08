@@ -119,7 +119,7 @@ router.post('/login', function(req, res, next) {
 
             // delete any pre-existing passwords
             delete rows[0].password;
-            
+
             // grab the first user
             req.session.user = rows[0];
             res.sendStatus(200);
@@ -143,7 +143,6 @@ router.post('/login', function(req, res, next) {
       });
     });
 
-
   }
   // if the whole JSON structure for username + password are wrong!!!
   else {
@@ -162,7 +161,7 @@ router.post('/login', function(req, res, next) {
 router.post('/signup', function(req, res, next) {
 
   // get username, password, email, lastname and firstname
-  if ('username' in req.body && 'password' in req.body && 'email' in req.body && 'lastname' in req.body && 'firstname' in req.body) {
+  if ('signusername' in req.body && 'signpassword' in req.body && 'email' in req.body && 'lastname' in req.body && 'firstname' in req.body) {
 
     req.pool.getConnection(async function(error, connection) {
       if (error) {
@@ -174,7 +173,7 @@ router.post('/signup', function(req, res, next) {
       // ARGON 2 hashing for Signing up
       let hash = null;
       try {
-        hash = await argon2.hash(req.body.password);
+        hash = await argon2.hash(req.body.signpassword);
       } catch(error) {
         console.log(error);
         res.sendStatus(500);
@@ -184,7 +183,7 @@ router.post('/signup', function(req, res, next) {
       // 1st part: INSERT username & password fields
       let query = "INSERT INTO users (email, lastname, firstname, username, password) VALUES(?, ?, ?, ?, ?); ";
 
-      connection.query(query, [req.body.email, req.body.lastname, req.body.firstname, req.body.username, hash], function(error, rows, fields) {
+      connection.query(query, [req.body.email, req.body.lastname, req.body.firstname, req.body.signusername, hash], function(error, rows, fields) {
 
         if (error) {
           console.log(error);
@@ -197,7 +196,7 @@ router.post('/signup', function(req, res, next) {
       let query = "SELECT email, lastname, firstname, username, password FROM users WHERE userid = LAST_INSERT_ID(); ";
 
       // connect to database WDCproject where the table is "users"
-      connection.query(query, [req.body.email, req.body.lastname, req.body.firstname, req.body.username, req.body.password], function(error, rows, fields) {
+      connection.query(query, [req.body.email, req.body.lastname, req.body.firstname, req.body.signusername, req.body.signpassword], function(error, rows, fields) {
         connection.release(); // release connections
 
         if (error) {

@@ -43,18 +43,23 @@ function returnMain() {
     signup.style.display = 'none';
 }
 
-
+// The login function pressed from the FORM!!!
 function login() {
 
     // Attempt 1:
     var user = {
+        // get username and password from user (LOGIN ONLY)
         username: document.getElementsByName('username')[0].value,
         password: document.getElementsByName('password')[0].value
     };
 
+    // Attempt 2:
+    // declare variables from user login
+    // var username = document.getElementById('login_username').value;
+    // var password = document.getElementById('login_password').value;
 
+    // Create http request
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "/login", true);
 
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -64,9 +69,9 @@ function login() {
         }
 
     };
-
+    xhttp.open("POST", "/login", true);
     xhttp.setRequestHeader("Content-type", "application/json");
-
+    // xhttp.send(JSON.stringify({ "login_username": username, "login_password": password }));
     xhttp.send(JSON.stringify(user));
 
 }
@@ -75,12 +80,14 @@ function login() {
 function signup() {
 
     let user = {
-        username: document.getElementsByName('username')[0].value,
-        password: document.getElementsByName('password')[0].value
+        signusername: document.getElementsByName('signusername')[0].value,
+        signpassword: document.getElementsByName('signpassword')[0].value,
+        email: document.getElementsByName('email')[0].value,
+        lastname: document.getElementsByName('lastname')[0].value,
+        firstname: document.getElementsByName('firstname')[0].value
     };
 
     let xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "/signup", true);
 
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -90,6 +97,7 @@ function signup() {
         }
     };
 
+    xhttp.open("POST", "/signup", true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send(JSON.stringify(user));
 
@@ -98,25 +106,28 @@ function signup() {
 // The logout function pressed from the FORM!!!
 function logout() {
 
-    let user = {
-        username: document.getElementsByName('username')[0].value,
-        password: document.getElementsByName('password')[0].value
-    };
+    try {
+        // The google sideout part
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+        console.log('User signed out.');
+    });
+
+    } catch (error) {
+
+    }
 
     // Create http request
     let xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "/logout", true);
 
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             alert("Session Logout Successful");
-        } else if (this.readyState == 4 && this.status >= 400) {
-            alert("Session Logout Failed");
         }
     };
-
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send(JSON.stringify(user));
+    // this will send request for normal signout
+    xhttp.open("POST", "/logout");
+    xhttp.send();
 }
 
 // The Google login
@@ -129,12 +140,33 @@ function onSignIn(googleUser) {
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+    // the server part
+   let xhttp = new XMLHttpRequest();
+
+   xhttp.onreadystatechange = function () {
+       // readyState = response is FULL, status = error code
+       if (this.readyState == 4 && this.status == 200) {
+           alert("Login Successful");
+       }
+       else if (this.readyState == 4 && this.status >= 400) {
+           alert("Login Failed");
+       }
+   };
+
+   // Tell the server that to handle like JSON
+   xhttp.open('POST', '/login');
+   xhttp.setRequestHeader("Content-type", "application/json");
+   xhttp.send( JSON.stringify( {
+       token: googleUser.getAuthResponse().id_token
+   }));
+
   }
 
 // The Google signout
-function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
+// function signOut() {
+//     var auth2 = gapi.auth2.getAuthInstance();
+//     auth2.signOut().then(function () {
+//       console.log('User signed out.');
+//     });
+//   }
