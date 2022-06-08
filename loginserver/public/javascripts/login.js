@@ -43,22 +43,16 @@ function returnMain() {
     signup.style.display = 'none';
 }
 
-// The login function pressed from the FORM!!!
+
 function login() {
 
     // Attempt 1:
     var user = {
-        // get username and password from user (LOGIN ONLY)
         username: document.getElementsByName('username')[0].value,
         password: document.getElementsByName('password')[0].value
     };
 
-    // Attempt 2:
-    // declare variables from user login
-    // var username = document.getElementById('login_username').value;
-    // var password = document.getElementById('login_password').value;
 
-    // Create http request
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "/login", true);
 
@@ -70,9 +64,9 @@ function login() {
         }
 
     };
-    
+
     xhttp.setRequestHeader("Content-type", "application/json");
-    // xhttp.send(JSON.stringify({ "login_username": username, "login_password": password }));
+
     xhttp.send(JSON.stringify(user));
 
 }
