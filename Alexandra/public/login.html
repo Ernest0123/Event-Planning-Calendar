@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <title>Social Event System Login / Sign Up</title>
+        <meta charset="UTF-8">
+
+        <!--Auto adjust screen size -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS area -->
+        <link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+        <!-- Google and FB logo file link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Vue script-->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+        <!-- Own script -->
+        <script src="javascripts/login.js" defer></script>
+
+        <!-- Google script -->
+        <meta name="google-signin-client_id" content="895797847270-i8ftbbfpkd1amu1c8ljd1seplek60ldr.apps.googleusercontent.com">
+        <meta name="google-signin-plugin_name" content="APP">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+    </head>
+
+    <body>
+        <!-- This is the area for users to press first & pop up a login window-->
+        <!-- Act as a DEMO main page first-->
+        <div id="main_page">
+
+            <h1>This is the main page </h1>
+            <button onclick="showLogin()">Press Me to being login</button>
+            <pre id="testing"></pre>
+        </div>
+
+        <!-- LOGIN FOMR USERS!!! -->
+        <div id="Login" class="modal">
+            <div class="modal-content">
+
+                <div class="container">
+
+                <div class="row">
+
+                <!-- Manually Login area -->
+                <h2 style="text-align: center;">Login to WDC Social Event System</h2>
+
+                <!-- User information (Login) -->
+                <div class="col">
+
+                    <input type="text" name="username" placeholder="Username" id="login_username">
+                    <input type="password" name="password" placeholder="Password" id="login_password">
+                    <!-- <input type="submit" name="Login" onclick="login()"> -->
+                    <button name="Login" onclick="login()">Login</button>
+
+                </div>
+
+                <hr />
+
+                <!-- Using Social Media to Login -->
+                <div class="col">
+                    <!-- Facebook -->
+                    <!-- <a href="#" class="fb btn">
+                    <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                    </a> -->
+
+                    <!-- Twitter -->
+                    <!-- <a href="#" class="twitter btn">
+                        <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+                    </a> -->
+
+                    <!-- Google -->
+                    <div class="g-signin2" data-onsuccess="onSignIn">Login with Google</div>
+                </div>
+            </div>
+                </div>
+
+
+                <!-- The column below will be for signing up / Return to Main page -->
+                <div class="bottom-container">
+                    <div class="row">
+
+                        <div class="col">
+
+                            <!-- USERS Sign up area -->
+                            <div class="col">
+                                <a href="#" style="color: white;" class="btn" onclick="showSignup()">Sign up</a>
+                            </div>
+
+                            <!-- ADMIN login up area -->
+                            <div class="col">
+                                <a href="#" style="color: white;" class="btn" onclick="showAdmin()">Admin login</a>
+                            </div>
+
+                             <!-- Return main page -->
+                             <div class="col">
+                                <a href="#" style="color: white;" class="btn" onclick="returnMain()">Cancel</a>
+                            </div>
+
+                             <!-- Logout area -->
+                             <div class="col">
+                                <a href="#" style="color: white;" class="btn" onclick="logout()">Logout</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- USERS Sign up page (Hidden)-->
+        <div id="Signup" class="modal">
+            <div class="modal-content">
+
+                <div class="container">
+
+                <div class="row">
+
+                <!-- Manually Login area -->
+                <h2 style="text-align: center;">Signup to WDC Social Event System</h2>
+
+                <!-- User information (Login) -->
+                <div class="col">
+
+                  <input type="text" name="email" placeholder="Email">
+                  <input type="text" name="lastname" placeholder="Last Name">
+                  <input type="text" name="firstname" placeholder="First Name">
+                  <input type="text" name="signusername" placeholder="Username">
+                  <input type="password" name="signpassword" placeholder="Password">
+                  <input type="checkbox" checked="checked" name="agree-term">By continuing I agree to 2022 WDC's
+                  <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+
+                  <!-- <input type="submit" name="Create"> -->
+                  <button type="button" name="Signup" onclick="signup()">Sign up</button>
+
+
+                </div>
+
+                <hr />
+            </div>
+                </div>
+
+                <!-- The column below will be for signing up / Return to Main page -->
+                <div class="bottom-container">
+                    <div class="row">
+
+                        <div class="col">
+
+                            <!-- Sign up area -->
+                            <div class="col">
+                                <a href="#" style="color: white;" class="btn" onclick="showLogin()">Back to Login</a>
+                            </div>
+
+                             <!-- Return main page -->
+                             <div class="col">
+                                <a href="#" style="color: white;" class="btn" onclick="returnMain()">Cancel</a>
+                            </div>
+
+                             <!-- Logout area -->
+                             <div class="col">
+                                <a href="#" style="color: white;" class="btn" onclick="logout()">Logout</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ADMIN LOGIN AREA!!!! -->
+        <div id="Admin" class="modal">
+            <div class="modal-content">
+
+                <div class="container">
+
+                <div class="row">
+
+                <!-- Manually Login area -->
+                <h2 style="text-align: center;">WDC Social Event System (For Admin) </h2>
+
+                <!-- User information (Login) -->
+                <div class="col">
+
+                    <input type="text" name="adminusername" placeholder="Username">
+                    <input type="password" name="adminpassword" placeholder="Password">
+                    <!-- <input type="submit" name="Login" onclick="login()"> -->
+                    <button name="Login" onclick="adminlogin()">Login</button>
+
+                </div>
+
+                <hr />
+                </div>
+            </div>
+
+
+                <!-- The column below will be for signing up / Return to Main page -->
+                <div class="bottom-container">
+                    <div class="row">
+
+                        <div class="col">
+
+                            <!-- show USER SIGN IN area -->
+                            <div class="col">
+                                <a href="#" style="color: white;" class="btn" onclick="showLogin()">Back to Login</a>
+                            </div>
+
+                             <!-- Return main page -->
+                             <div class="col">
+                                <a href="#" style="color: white;" class="btn" onclick="returnMain()">Cancel</a>
+                            </div>
+
+                             <!-- Logout area -->
+                             <div class="col">
+                                <a href="#" style="color: white;" class="btn" onclick="logout()">Logout</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </body>
+
+</html>
