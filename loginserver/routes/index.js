@@ -254,7 +254,7 @@ router.get('/requsrinfo', function(req,res,next){
           return;
       }
     var query = `SELECT firstname, lastname, email FROM users WHERE username = ?;`;
-    connection.query(query, req.session.user, function(error, rows, fields){
+    connection.query(query, req.session.user.username, function(error, rows, fields){
       connection.release();
       if (error) {
         console.log(error);
