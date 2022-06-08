@@ -278,8 +278,10 @@ router.get('/amiin', function(req,res,next){
         res.sendStatus(500);
         return;
       }
-      var return = req.session.user.username;
-    })
+      var returnmsg = req.session.user.username;
+      res.send(returnmsg);
+    });
   }
-})
+});
+
 module.exports = router;
