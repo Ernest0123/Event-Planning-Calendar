@@ -82,9 +82,13 @@ function updatenameemail(){
 
     xhttp.onreadystatechange = function (){
         if (this.readyState == 4 && this.status == 200){
-            
+            document.getElementById("usrrealname").innerHTML = res.firstname + res.lastname;
+            document.getElementById("usremailaddr").innerHTML = res.emailaddr;
+        } else if (this.readyState == 4 && this.status >=400){
+            alert("update failed");
         }
-    }
+    };
+    xhttp.open(")
 }
 
 // Sign up functions!!!!!!
