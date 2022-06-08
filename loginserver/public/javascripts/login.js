@@ -1,4 +1,8 @@
-// Show Login Page
+function usernamecheck() {
+    
+}
+
+// Show Login Pagw
 function showLogin() {
 
     // // the whole main thing in the content
