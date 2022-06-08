@@ -14,7 +14,7 @@ router.get('/actor', function(req, res, next){
           return;
       }
       //squery to get all the last name and last name from actor
-      var query = `SELECT first_name, last_name FROM actor;`;
+      var query = `SELECT firstname, lastname, email FROM users;`;
       connection.query(query, function(error, rows, fields){
           connection.release();
           if(error) {
