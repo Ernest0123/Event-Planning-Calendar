@@ -247,8 +247,21 @@ router.post('/logout', function(req, res, next) {
 
 router.get('/requsrinfo', function(req,res,next){
   if ('user' in req.session) {
-    var query = `SELECT first_name, last_name FROM actor;`;
-    connection.query(query, )
+    req.pool.getConnection( function(error,connection){
+      if(error) {
+          res.sendStatus(500);
+          return;
+      }
+    var query = `SELECT first_name, last_name, email FROM users WHERE ;`;
+    connection.query(query, function(error, rows, fields){
+      connection.release();
+      if (error) {
+        res.sendStatus(500);
+        return;
+      }
+      res.json(rows);
+    });
+  });
   }  else {
     res.sendStatus(404);
   }
