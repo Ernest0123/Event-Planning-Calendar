@@ -64,6 +64,7 @@ function login() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             alert("Login Successful");
+            document.getElementById("usrname").value = username;
         } else if (this.readyState == 4 && this.status >= 400) {
             alert("Login Failed");
         }
@@ -123,6 +124,7 @@ function logout() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             alert("Session Logout Successful");
+            document.getElementById("usrname").value = "";
         }
     };
     // this will send request for normal signout
