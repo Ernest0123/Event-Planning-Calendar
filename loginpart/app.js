@@ -12,10 +12,12 @@ var mysql = require('mysql');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+// setup connection pool, before app
+var dbConnectionPool = mysql.createPool( {host: 'localhost', database: 'users' });
+
 var app = express();
 
-// setup connection pool, after app
-var dbConnectionPool = mysql.createPool( {host: 'localhost', database: 'users' });
+
 
 // order does matter!!!
 app.use(function(req, res, next) {
