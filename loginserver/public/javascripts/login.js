@@ -64,7 +64,7 @@ function login() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             alert("Login Successful");
-            document.getElementById("usrname").value = user.username;
+            document.getElementById("usrname").innerHTML = user.username;
         } else if (this.readyState == 4 && this.status >= 400) {
             alert("Login Failed");
         }
