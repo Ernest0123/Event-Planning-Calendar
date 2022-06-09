@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.29, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: WDCproject
+-- Host: 127.0.0.1    Database: WDCproject1
 -- ------------------------------------------------------
 -- Server version	8.0.29-0ubuntu0.20.04.3
 
@@ -88,7 +88,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`userid`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +97,6 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'peterchan@goggle.com','Chan','Peter','Peter123','$argon2i$v=19$m=4096,t=3,p=1$8me2LbH6b3d6wpgI2ywpjA$JTJpnbI8D042Cq8ecz6Tx7zKqXx7h4m0FX8FewPEzxM');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -110,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-08 14:58:04
+-- Dump completed on 2022-06-09  9:41:01
