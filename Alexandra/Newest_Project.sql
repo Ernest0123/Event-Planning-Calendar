@@ -97,7 +97,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (4,'peterchan@goggle.com','Chan','Peter','Peter123','$argon2i$v=19$m=4096,t=3,p=1$8me2LbH6b3d6wpgI2ywpjA$JTJpnbI8D042Cq8ecz6Tx7zKqXx7h4m0FX8FewPEzxM');
+INSERT INTO `users` VALUES (1,'peterchan@goggle.com','Chan','Peter','Peter123','$argon2i$v=19$m=4096,t=3,p=1$8me2LbH6b3d6wpgI2ywpjA$JTJpnbI8D042Cq8ecz6Tx7zKqXx7h4m0FX8FewPEzxM');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
