@@ -218,7 +218,6 @@ router.post('/login', function(req, res, next) {
 
         });
       });
-    });
 
           // Get username & password fields (for users)
         let query = "SELECT email, lastname, firstname, username, password FROM users WHERE email = ?; ";
