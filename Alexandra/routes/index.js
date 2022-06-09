@@ -193,11 +193,11 @@ router.post('/login', function(req, res, next) {
           }
 
           if (rows.length > 0) {
-            console.log("Goggle Username and Passwords are both CORRECT!!!");
+            console.log("Email already EXISTS!!!");
             req.session.user = rows[0];
             res.sendStatus(200);
           } else {
-            console.log("ONLY Goggle Username or Password is CORRECT!");
+            console.log("Email does not exist");
             res.sendStatus(401);
           }
 
