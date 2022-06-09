@@ -204,16 +204,14 @@ router.post('/login', function(req, res, next) {
           res.sendStatus(500);
           return;
         }
-        // Username + Password --> working fine
+
         if (rows.length > 0) {
-          console.log("Insert Username, Password, Email, names are ALL CORRECT!!!");
+          console.log("Email already EXISTS!!!");
           req.session.user = rows[0];
           res.sendStatus(200);
-        }
-        // either the typed-in usename / password is correct
-        else {
-          console.log("ANY columns might be wrong!");
-          res.sendStatus(401);
+        } else {
+          console.log("Email does not exist, but Goggle account logged in");
+          res.sendStatus(200);
         }
 
         });
