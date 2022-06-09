@@ -182,7 +182,7 @@ router.post('/login', function(req, res, next) {
 
         // 1st part: INSERT the Google email INTO our database
         // so that there will not be duplicates email in future
-      let query = "INSERT INTO users (email, lastname, firstname, username, password) VALUES(?, ?, ?, ?, ?); ";
+      let query = "INSERT INTO users (email) VALUES(?); ";
 
       connection.query(query, [email], function(error, rows, fields) {
 
