@@ -83,7 +83,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `lastname` varchar(128) DEFAULT NULL,
   `firstname` varchar(128) DEFAULT NULL,
-  `username` varchar(64) NOT NULL,
+  `username` varchar(64) DEFAULT NULL,
   `password` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`userid`),
   UNIQUE KEY `email` (`email`),
