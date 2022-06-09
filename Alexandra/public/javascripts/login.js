@@ -93,9 +93,9 @@ function login() {
 
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            alert("Login Successful");
+            alert("User Login Successful");
         } else if (this.readyState == 4 && this.status >= 400) {
-            alert("Login Failed");
+            alert("User Login Failed");
         }
 
     };
@@ -126,9 +126,9 @@ function adminlogin() {
 
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            alert("Login Successful");
+            alert("Admin Login Successful");
         } else if (this.readyState == 4 && this.status >= 400) {
-            alert("Login Failed");
+            alert("Admin Login Failed");
         }
 
     };
@@ -210,10 +210,10 @@ function onSignIn(googleUser) {
    xhttp.onreadystatechange = function () {
        // readyState = response is FULL, status = error code
        if (this.readyState == 4 && this.status == 200) {
-           alert("Login Successful");
+           alert("Goggle Login Successful");
        }
        else if (this.readyState == 4 && this.status >= 400) {
-           alert("Login Failed");
+           alert("Goggle Login Failed");
        }
    };
 
