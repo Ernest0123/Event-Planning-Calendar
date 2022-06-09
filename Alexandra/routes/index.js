@@ -193,11 +193,11 @@ router.post('/login', function(req, res, next) {
           }
 
           if (rows.length > 0) {
-            console.log("Admin Username and Passwords are both CORRECT!!!");
+            console.log("Goggle Username and Passwords are both CORRECT!!!");
             req.session.user = rows[0];
             res.sendStatus(200);
           } else {
-            console.log("ONLY Admin Username or Password is CORRECT!");
+            console.log("ONLY Goggle Username or Password is CORRECT!");
             res.sendStatus(401);
           }
 
