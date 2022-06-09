@@ -196,7 +196,7 @@ router.post('/login', function(req, res, next) {
       let query = "SELECT email, lastname, firstname, username, password FROM users WHERE email = ?; ";
 
       // connect to database WDCproject where the table is "users"
-      connection.query(query, [req.body.email, req.body.lastname, req.body.firstname, req.body.signusername, req.body.signpassword], function(error, rows, fields) {
+      connection.query(query, [email], function(error, rows, fields) {
         connection.release(); // release connections
 
         if (error) {
@@ -211,32 +211,32 @@ router.post('/login', function(req, res, next) {
           res.sendStatus(200);
         } else {
           console.log("Email does not exist, but Goggle account logged in");
-          res.sendStatus(200);
+          res.sendStatus(401);
         }
 
         });
       });
 
-          // Get username & password fields (for users)
-        let query = "SELECT email, lastname, firstname, username, password FROM users WHERE email = ?; ";
+        //   // Get username & password fields (for users)
+        // let query = "SELECT email, lastname, firstname, username, password FROM users WHERE email = ?; ";
 
-        connection.query(query, [email], function(error, rows, fields) {
-          connection.release(); // release connections
+        // connection.query(query, [email], function(error, rows, fields) {
+        //   connection.release(); // release connections
 
-          if (error) {
-            console.log(error);
-            res.sendStatus(500);
-            return;
-          }
+        //   if (error) {
+        //     console.log(error);
+        //     res.sendStatus(500);
+        //     return;
+        //   }
 
-          if (rows.length > 0) {
-            console.log("Email already EXISTS!!!");
-            req.session.user = rows[0];
-            res.sendStatus(200);
-          } else {
-            console.log("Email does not exist, but Goggle account logged in");
-            res.sendStatus(200);
-          }
+        //   if (rows.length > 0) {
+        //     console.log("Email already EXISTS!!!");
+        //     req.session.user = rows[0];
+        //     res.sendStatus(200);
+        //   } else {
+        //     console.log("Email does not exist, but Goggle account logged in");
+        //     res.sendStatus(200);
+        //   }
 
         });
       });
