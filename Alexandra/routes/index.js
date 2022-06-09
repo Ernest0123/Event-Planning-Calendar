@@ -164,7 +164,7 @@ router.post('/login', function(req, res, next) {
 
       // return email payload
        email = payload["email"];
-       console.log(email);
+      //  console.log(email);
       // If request specified a G Suite domain:
       // const domain = payload['hd'];
     }
@@ -180,41 +180,6 @@ router.post('/login', function(req, res, next) {
           return;
         }
 
-      //   // 1st part: INSERT the Google email INTO our database
-      //   // so that there will not be duplicates email in future
-      // let query = "INSERT INTO users (email) VALUES(?); ";
-
-      // connection.query(query, [email], function(error, rows, fields) {
-
-      //   if (error) {
-      //     console.log(error);
-      //     res.sendStatus(403);
-      //     return;
-      //   }
-
-      // // 2nd part: GET that Gmail from user
-      // let query = "SELECT email FROM users WHERE email = ?; ";
-
-      // // connect to database WDCproject where the table is "users"
-      // connection.query(query, [email], function(error, rows, fields) {
-      //   connection.release(); // release connections
-
-      //   if (error) {
-      //     console.log(error);
-      //     res.sendStatus(500);
-      //     return;
-      //   }
-
-      //   if (rows.length > 0) {
-      //     console.log("Email already EXISTS!!!");
-      //     req.session.user = rows[0];
-      //     res.sendStatus(200);
-      //   } else {
-      //     console.log("Email does not exist, but Goggle account logged in");
-      //     res.sendStatus(401);
-      //   }
-
-      //   });
 
           // Get username & password fields (for users)
         // let query = "SELECT email, lastname, firstname, username, password FROM users WHERE email = ?; ";
@@ -236,7 +201,7 @@ router.post('/login', function(req, res, next) {
           }
           // if there is email exists in database
           else {
-            console.log("No existing Email account, Goggle account logged in");
+            console.log("Goggle account logged in.");
             req.session.user = rows[0];
             res.sendStatus(200);
           }
