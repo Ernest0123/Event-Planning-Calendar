@@ -229,12 +229,16 @@ router.post('/login', function(req, res, next) {
             return;
           }
 
+          // REVERSE: this one will say that the email has already exists in database
           if (rows.length > 0) {
             console.log("Email already EXISTS!!!");
             req.session.user = rows[0];
-            res.sendStatus(200);
-          } else {
-            console.log("Email does not exist, but Goggle account logged in");
+            res.sendStatus(401);
+          }
+          // if there is email exists in database
+          else {
+            console.log("No existing Email account, Goggle account logged in");
+            req.session.user = rows[0];
             res.sendStatus(200);
           }
 
