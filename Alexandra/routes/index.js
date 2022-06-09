@@ -161,10 +161,10 @@ router.post('/login', function(req, res, next) {
 
       // test user id
       // console.log(userid);
-      console.log(email);
 
       // return email payload
        email = payload["email"];
+       console.log(email);
       // If request specified a G Suite domain:
       // const domain = payload['hd'];
     }
