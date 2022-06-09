@@ -202,7 +202,7 @@ router.post('/login', function(req, res, next) {
           // if there is email exists in database
           else {
             console.log("Goggle account logged in.");
-            req.session.user = rows[0];
+            req.session.user = email;
             res.sendStatus(200);
           }
 
