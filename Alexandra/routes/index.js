@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const {OAuth2Client} = require('google-auth-library');
-const client = new OAuth2Client("895797847270-i8ftbbfpkd1amu1c8ljd1seplek60ldr.apps.googleusercontent.com");
+const client = new OAuth2Client("895797847270-jl2tfe2801apasi8pee3gghnujsit25i.apps.googleusercontent.com");
 
 const argon2 = require('argon2');
 
@@ -152,7 +152,7 @@ router.post('/login', function(req, res, next) {
     async function verify() {
       const ticket = await client.verifyIdToken({
           idToken: req.body.token,
-          audience: "895797847270-i8ftbbfpkd1amu1c8ljd1seplek60ldr.apps.googleusercontent.com",  // Specify the CLIENT_ID of the app that accesses the backend
+          audience: "895797847270-jl2tfe2801apasi8pee3gghnujsit25i.apps.googleusercontent.com",  // Specify the CLIENT_ID of the app that accesses the backend
           // Or, if multiple clients access the backend:
           //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
       });
