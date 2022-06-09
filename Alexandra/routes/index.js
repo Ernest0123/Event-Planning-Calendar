@@ -180,62 +180,63 @@ router.post('/login', function(req, res, next) {
           return;
         }
 
-        // 1st part: INSERT the Google email INTO our database
-        // so that there will not be duplicates email in future
-      let query = "INSERT INTO users (email) VALUES(?); ";
+      //   // 1st part: INSERT the Google email INTO our database
+      //   // so that there will not be duplicates email in future
+      // let query = "INSERT INTO users (email) VALUES(?); ";
 
-      connection.query(query, [email], function(error, rows, fields) {
+      // connection.query(query, [email], function(error, rows, fields) {
 
-        if (error) {
-          console.log(error);
-          res.sendStatus(403);
-          return;
-        }
+      //   if (error) {
+      //     console.log(error);
+      //     res.sendStatus(403);
+      //     return;
+      //   }
 
-      // 2nd part: GET that Gmail from user
-      let query = "SELECT email FROM users WHERE email = ?; ";
+      // // 2nd part: GET that Gmail from user
+      // let query = "SELECT email FROM users WHERE email = ?; ";
 
-      // connect to database WDCproject where the table is "users"
-      connection.query(query, [email], function(error, rows, fields) {
-        connection.release(); // release connections
+      // // connect to database WDCproject where the table is "users"
+      // connection.query(query, [email], function(error, rows, fields) {
+      //   connection.release(); // release connections
 
-        if (error) {
-          console.log(error);
-          res.sendStatus(500);
-          return;
-        }
+      //   if (error) {
+      //     console.log(error);
+      //     res.sendStatus(500);
+      //     return;
+      //   }
 
-        if (rows.length > 0) {
-          console.log("Email already EXISTS!!!");
-          req.session.user = rows[0];
-          res.sendStatus(200);
-        } else {
-          console.log("Email does not exist, but Goggle account logged in");
-          res.sendStatus(401);
-        }
+      //   if (rows.length > 0) {
+      //     console.log("Email already EXISTS!!!");
+      //     req.session.user = rows[0];
+      //     res.sendStatus(200);
+      //   } else {
+      //     console.log("Email does not exist, but Goggle account logged in");
+      //     res.sendStatus(401);
+      //   }
 
-        });
+      //   });
 
-        //   // Get username & password fields (for users)
+          // Get username & password fields (for users)
         // let query = "SELECT email, lastname, firstname, username, password FROM users WHERE email = ?; ";
+        let query = "INSERT INTO users (email) VALUES(?); ";
 
-        // connection.query(query, [email], function(error, rows, fields) {
-        //   connection.release(); // release connections
+        connection.query(query, [email], function(error, rows, fields) {
+          connection.release(); // release connections
 
-        //   if (error) {
-        //     console.log(error);
-        //     res.sendStatus(500);
-        //     return;
-        //   }
+          if (error) {
+            console.log(error);
+            res.sendStatus(500);
+            return;
+          }
 
-        //   if (rows.length > 0) {
-        //     console.log("Email already EXISTS!!!");
-        //     req.session.user = rows[0];
-        //     res.sendStatus(200);
-        //   } else {
-        //     console.log("Email does not exist, but Goggle account logged in");
-        //     res.sendStatus(200);
-        //   }
+          if (rows.length > 0) {
+            console.log("Email already EXISTS!!!");
+            req.session.user = rows[0];
+            res.sendStatus(200);
+          } else {
+            console.log("Email does not exist, but Goggle account logged in");
+            res.sendStatus(200);
+          }
 
         });
       });
