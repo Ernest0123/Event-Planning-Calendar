@@ -197,8 +197,8 @@ router.post('/login', function(req, res, next) {
             req.session.user = rows[0];
             res.sendStatus(200);
           } else {
-            console.log("Email does not exist");
-            res.sendStatus(401);
+            console.log("Email does not exist, but Goggle account logged in");
+            res.sendStatus(200);
           }
 
         });
