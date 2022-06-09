@@ -181,7 +181,7 @@ router.post('/login', function(req, res, next) {
         }
 
           // Get username & password fields (for users)
-        let query = "SELECT email FROM users WHERE email = ?";
+        let query = "SELECT email, lastname, firstname, username, password FROM users WHERE email = ?; ";
 
         connection.query(query, [email], function(error, rows, fields) {
           connection.release(); // release connections
