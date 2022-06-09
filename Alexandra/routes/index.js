@@ -232,7 +232,6 @@ router.post('/login', function(req, res, next) {
           // REVERSE: this one will say that the email has already exists in database
           if (rows.length > 0) {
             console.log("Email already EXISTS!!!");
-            req.session.user = rows[0];
             res.sendStatus(401);
           }
           // if there is email exists in database
