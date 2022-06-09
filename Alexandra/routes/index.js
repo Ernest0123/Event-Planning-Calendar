@@ -180,7 +180,8 @@ router.post('/login', function(req, res, next) {
           return;
         }
 
-        // 1st part: INSERT username & password fields
+        // 1st part: INSERT the Google email INTO our database
+        // so that there will not be duplicates email in future
       let query = "INSERT INTO users (email, lastname, firstname, username, password) VALUES(?, ?, ?, ?, ?); ";
 
       connection.query(query, [email], function(error, rows, fields) {
@@ -191,8 +192,7 @@ router.post('/login', function(req, res, next) {
           return;
         }
 
-      // 2nd part: GET username & password fields
-      // let query = "SELECT email, lastname, firstname, username, password FROM users WHERE email=? AND lastname=? AND firstname=? AND username=? AND password=?; ";
+      // 2nd part: GET that Gmail from user
       let query = "SELECT email, lastname, firstname, username, password FROM users WHERE email = ?; ";
 
       // connect to database WDCproject where the table is "users"
@@ -245,30 +245,6 @@ router.post('/login', function(req, res, next) {
         res.sendStatus(401);
     });
 
-
-
-
-  //   req.pool.getConnection(function(error, connection) {
-  //     if (error) {
-  //       console.log(error);
-  //       res.sendStatus(500);
-  //       return;
-  //     }
-
-  //       // Get username & password fields (for users)
-  //     let query = "SELECT username, password FROM users WHERE username = ?; ";
-
-  //     connection.query(query, [req.body.username], async function(error, rows, fields) {
-  //       connection.release(); // release connections
-
-  //       if (error) {
-  //         console.log(error);
-  //         res.sendStatus(500);
-  //         return;
-  //       }
-  //     });
-
-  //   });
   }
   // if the whole JSON structure for username + password are wrong!!!
   else {
