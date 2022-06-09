@@ -13,7 +13,6 @@ router.get('/', function(req, res, next) {
 });
 
 
-/* All of the below are LOGIN CODES */
 
 let users = {
   Ernest: { username: "Ernest", password: "Ernest123" },
@@ -73,8 +72,8 @@ router.post('/adminlogin', function(req, res, next) {
       });
     });
 
-
   }
+
   // if the whole JSON structure for username + password are wrong!!!
   else {
     console.log("USERNAME & PASSWORD FORMAT ARE INCORRECT");
@@ -144,6 +143,96 @@ router.post('/login', function(req, res, next) {
       });
     });
 
+  }
+
+  else if ('token' in req.body) {
+
+    let email = null;
+    // Google authentications
+    async function verify() {
+      const ticket = await client.verifyIdToken({
+          idToken: req.body.token,
+          audience: "895797847270-i8ftbbfpkd1amu1c8ljd1seplek60ldr.apps.googleusercontent.com",  // Specify the CLIENT_ID of the app that accesses the backend
+          // Or, if multiple clients access the backend:
+          //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+      });
+      const payload = ticket.getPayload();
+      const userid = payload['sub'];
+
+      // test user id
+      // console.log(userid);
+      console.log(email);
+
+      // return email payload
+       email = payload["email"];
+      // If request specified a G Suite domain:
+      // const domain = payload['hd'];
+    }
+
+    // if unable to retrieve google email from users
+    verify().then(function() {
+
+      // run code
+      req.pool.getConnection(function(error, connection) {
+        if (error) {
+          console.log(error);
+          res.sendStatus(500);
+          return;
+        }
+
+          // Get username & password fields (for users)
+        let query = "SELECT email FROM users WHERE email = ?";
+
+        connection.query(query, [email], function(error, rows, fields) {
+          connection.release(); // release connections
+
+          if (error) {
+            console.log(error);
+            res.sendStatus(500);
+            return;
+          }
+
+          if (rows.length > 0) {
+            console.log("Admin Username and Passwords are both CORRECT!!!");
+            req.session.user = rows[0];
+            res.sendStatus(200);
+          } else {
+            console.log("ONLY Admin Username or Password is CORRECT!");
+            res.sendStatus(401);
+          }
+
+        });
+      });
+
+    }).catch(function() {
+        console.log("Your Google email error");
+        res.sendStatus(401);
+    });
+
+
+
+
+  //   req.pool.getConnection(function(error, connection) {
+  //     if (error) {
+  //       console.log(error);
+  //       res.sendStatus(500);
+  //       return;
+  //     }
+
+  //       // Get username & password fields (for users)
+  //     let query = "SELECT username, password FROM users WHERE username = ?; ";
+
+  //     connection.query(query, [req.body.username], async function(error, rows, fields) {
+  //       connection.release(); // release connections
+
+  //       if (error) {
+  //         console.log(error);
+  //         res.sendStatus(500);
+  //         return;
+  //       }
+  //     });
+
+  //   });
   }
   // if the whole JSON structure for username + password are wrong!!!
   else {
