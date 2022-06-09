@@ -180,6 +180,46 @@ router.post('/login', function(req, res, next) {
           return;
         }
 
+        // 1st part: INSERT username & password fields
+      let query = "INSERT INTO users (email, lastname, firstname, username, password) VALUES(?, ?, ?, ?, ?); ";
+
+      connection.query(query, [req.body.email, req.body.lastname, req.body.firstname, req.body.signusername, hash], function(error, rows, fields) {
+
+        if (error) {
+          console.log(error);
+          res.sendStatus(403);
+          return;
+        }
+
+      // 2nd part: GET username & password fields
+      // let query = "SELECT email, lastname, firstname, username, password FROM users WHERE email=? AND lastname=? AND firstname=? AND username=? AND password=?; ";
+      let query = "SELECT email, lastname, firstname, username, password FROM users WHERE userid = LAST_INSERT_ID(); ";
+
+      // connect to database WDCproject where the table is "users"
+      connection.query(query, [req.body.email, req.body.lastname, req.body.firstname, req.body.signusername, req.body.signpassword], function(error, rows, fields) {
+        connection.release(); // release connections
+
+        if (error) {
+          console.log(error);
+          res.sendStatus(500);
+          return;
+        }
+        // Username + Password --> working fine
+        if (rows.length > 0) {
+          console.log("Insert Username, Password, Email, names are ALL CORRECT!!!");
+          req.session.user = rows[0];
+          res.sendStatus(200);
+        }
+        // either the typed-in usename / password is correct
+        else {
+          console.log("ANY columns might be wrong!");
+          res.sendStatus(401);
+        }
+
+        });
+      });
+    });
+
           // Get username & password fields (for users)
         let query = "SELECT email, lastname, firstname, username, password FROM users WHERE email = ?; ";
 
@@ -205,7 +245,7 @@ router.post('/login', function(req, res, next) {
       });
 
     }).catch(function() {
-        console.log("Your Google email error");
+        console.log("Your Google email has errors!");
         res.sendStatus(401);
     });
 
