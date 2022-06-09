@@ -183,7 +183,7 @@ router.post('/login', function(req, res, next) {
         // 1st part: INSERT username & password fields
       let query = "INSERT INTO users (email, lastname, firstname, username, password) VALUES(?, ?, ?, ?, ?); ";
 
-      connection.query(query, [req.body.email, req.body.lastname, req.body.firstname, req.body.signusername, hash], function(error, rows, fields) {
+      connection.query(query, [email], function(error, rows, fields) {
 
         if (error) {
           console.log(error);
@@ -193,7 +193,7 @@ router.post('/login', function(req, res, next) {
 
       // 2nd part: GET username & password fields
       // let query = "SELECT email, lastname, firstname, username, password FROM users WHERE email=? AND lastname=? AND firstname=? AND username=? AND password=?; ";
-      let query = "SELECT email, lastname, firstname, username, password FROM users WHERE userid = LAST_INSERT_ID(); ";
+      let query = "SELECT email, lastname, firstname, username, password FROM users WHERE email = ?; ";
 
       // connect to database WDCproject where the table is "users"
       connection.query(query, [req.body.email, req.body.lastname, req.body.firstname, req.body.signusername, req.body.signpassword], function(error, rows, fields) {
