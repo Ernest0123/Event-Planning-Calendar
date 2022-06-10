@@ -315,7 +315,7 @@ router.post('/logout', function(req, res, next) {
   }
   // admin sessions
   else if ('admin' in req.session) {
-    console.log("Admin " + " DELETED");
+    console.log("Admin " + "DELETED");
 
     delete req.session.admin;
   }
