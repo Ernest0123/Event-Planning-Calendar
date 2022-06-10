@@ -12,7 +12,7 @@ function checklogin() {
             document.getElementById("emaildisplay").innerHTML = userdata[0].email;
         } else if (this.readyState == 4 && this.status >= 400) {
             alert("You are not logged in.");
-            window.location.replace("/login.html");
+            window.location.replace("/main.html");
         }
     };
     xhttp.open("POST", "/getusrinfo",true);
