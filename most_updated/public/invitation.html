@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Invite People Page</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/createevent.css">
+        <script src="https://kit.fontawesome.com/a3b5e2506d.js" crossorigin="anonymous"></script>
+        <script src="/javascripts/function.js" defer></script>
+
+
+    </head>
+
+    <body>
+        <div id="adddesc">
+<h1> You are Invited </h1>
+<h3>Event Name</h3>
+
+<label>Select Date </label>
+<br/>
+<input type="checkbox" id="private1" name="test1"><label>Date 1</label>
+<br/>
+<input type="checkbox" name="Date2"><label>Date2</label>
+<br/>
+<input type="checkbox" name="Date3"><label>Select Date that you are available</label><input type="date">
+<h2>Please fill in the dates by 10 June 2022</h2>
+<form class="modal-content">
+<h1>Fill in personal details</h1>
+<br/>
+<label>Name</label>
+<input name="namepart" id="name1">
+
+<label>Email</label>
+<input name="namepart" id="email">
+<button>Send</button>
+</form>
+
+<div id="bawahbutton2">
+    <button>Cancel</button>
+    <button> Save </button>
+    <button onclick="name_add()"> Submit </button>
+
+
+ </div>
+
+
+        </div>
+
+    <script src="/javascripts/nodemailer.js" defer></script>
+</body>
+</html>
