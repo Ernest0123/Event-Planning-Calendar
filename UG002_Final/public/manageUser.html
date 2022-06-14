@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Manage User Profile</title>
+
+        <!-- CSS area -->
+        <link rel="stylesheet" type="text/css" href="stylesheets/manageUser.css">
+
+        <!-- Vue script-->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+        <!-- JavaScript-->
+        <script src="javascripts/manageUser.js"></script>
+</head>
+
+
+<body onload="checklogin()">
+
+<div id="ManageUser">
+
+<div class="container">
+
+    <h3>Manage User Info</h3>
+
+    <p class="nonewline">You are logged in as:</p>
+    <p class="nonewline" id="usernamedisplay"></p>
+
+    <br>
+
+    <table id="currentprofile">
+    <caption>Current user profile</caption>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+  </tr>
+  <tr>
+    <td id="firstnamedisplay"></td>
+    <td id="lastnamedisplay"></td>
+    <td id="emaildisplay"></td>
+  </tr>
+</table>
+
+  <form id="theForm" action="/updateusrinfo" method="POST">
+
+    First Name: <input type="text" id="fname" name="firstname" placeholder="First name" required="">
+
+    Last Name: <input type="text" id="lname" name="lastname" placeholder="Last name" required="">
+
+    Email: <input type="text" id="email" name="email" placeholder="Email">
+
+    Password: <input type="text" id="password" name="password" placeholder="Enter Password">
+
+
+    <div class="Uinfo_button">
+        <button onclick="gobacktomain()">Cancel</button>
+        <button onclick="document.getElementById('theForm').submit();" type="reset">Save Changes</button>
+    </div>
+
+  </form>
+</div>
+
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Welcome!</title>
+         <!-- CSS file  -->
+        <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+         <!-- JS File -->
+        <script src="/javascripts/main.js" defer></script>
+        <script src="javascripts/login.js" defer></script>
+        <script src="https://kit.fontawesome.com/a3b5e2506d.js" crossorigin="anonymous"></script>
+
+         <!-- Vue script-->
+         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <!--<script src="/javascripts/createevent.js" defer></script>-->
+
+         <!-- Google script -->
+         <meta name="google-signin-client_id" content="895797847270-jl2tfe2801apasi8pee3gghnujsit25i.apps.googleusercontent.com">
+         <meta name="google-signin-plugin_name" content="APP">
+         <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    </head>
+    <body id="menu">
+
+        <header>
+            <ul class="sidenav">
+                <li><a class="open-button" onclick="showLogin()" >Log-In / Sign Up</a></li>
+                <li><a class="admin-log-in" onclick="showAdmin()">Log-In/Sign-Up Admin</a></li>
+                <li><a class="open-button" href="manageUser.html">Manage User Profile</a></li>
+                <li><a href="createevent.html">Create Events</a></li>
+              </ul>
+        </header>
+
+        <div id="divsec1">
+        <h1>Welcome</h1>
+        <main>
+        <input  type="text" placeholder="Browse Events" name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+        </main>
+        </div>
+         <!-- Second Bottom of the Div -->
+   <div id="divsec2">
+   <!-- Slideshow container -->
+    <div class="slideshowdiv">
+    <!-- Full-width images with number and caption text -->
+    <div class="slide1 fade">
+      <div class="numbercounter">1 / 3</div>
+      <img src="/images/events1.jpeg" style="width:100%" alt="imageerror3">
+    </div>
+
+    <div class="slide1 fade">
+      <div class="numbercounter">2 / 3</div>
+      <img src="/images/events2.jpeg" style="width:100%" alt="imageerror2">
+
+    </div>
+
+     <div class="slide1 fade">
+      <div class="numbercounter">3 / 3</div>
+      <img src="/images/events3.jpeg" style="width:100%" alt="imageerror">
+    </div>
+
+    <!-- Next and previous buttons -->
+    <a class="previous" onclick="plus_slides(-1)">&#10094;</a>
+    <a class="next" onclick="plus_slides(1)">&#10095;</a>
+  </div>
+  <br>
+</div>
+
+  <!-- LOGIN FOMR USERS!!! -->
+  <div id="Login" class="modal">
+    <div class="modal-content">
+
+        <div class="container">
+
+        <div class="row">
+
+        <!-- Manually Login area -->
+        <h2 style="text-align: center;">Login to WDC Social Event System</h2>
+
+        <!-- User information (Login) -->
+        <div class="col">
+
+            <input type="text" name="username" placeholder="Username" id="login_username">
+            <input type="password" name="password" placeholder="Password" id="login_password">
+            <!-- <input type="submit" name="Login" onclick="login()"> -->
+            <button name="Login" onclick="login()">Login</button>
+
+        </div>
+
+        <hr />
+
+        <!-- Using Social Media to Login -->
+        <div class="col">
+            <!-- Facebook -->
+            <!-- <a href="#" class="fb btn">
+            <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+            </a> -->
+
+            <!-- Twitter -->
+            <!-- <a href="#" class="twitter btn">
+                <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+            </a> -->
+
+            <!-- Google -->
+            <div class="g-signin2" data-onsuccess="onSignIn">Login with Google</div>
+        </div>
+    </div>
+        </div>
+
+
+        <!-- The column below will be for signing up / Return to Main page -->
+        <div class="bottom-container">
+            <div class="row">
+
+                <div class="col">
+
+                    <!-- USERS Sign up area -->
+                    <div class="col">
+                        <a href="#" style="color: white;" class="btn" onclick="showSignup()">Sign up</a>
+                    </div>
+
+                    <!-- ADMIN login up area -->
+                    <div class="col">
+                        <a href="#" style="color: white;" class="btn" onclick="showAdmin()">Admin login</a>
+                    </div>
+
+                     <!-- Return main page -->
+                     <div class="col">
+                        <a href="#" style="color: white;" class="btn" onclick="returnMain()">Cancel</a>
+                    </div>
+
+                     <!-- Logout area -->
+                     <div class="col">
+                        <a href="#" style="color: white;" class="btn" onclick="logout()">Logout</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- USERS Sign up page (Hidden)-->
+<div id="Signup" class="modal">
+    <div class="modal-content">
+
+        <div class="container">
+
+        <div class="row">
+
+        <!-- Manually Login area -->
+        <h2 style="text-align: center;">Signup to WDC Social Event System</h2>
+
+        <!-- User information (Login) -->
+        <div class="col">
+
+          <input type="text" name="email" placeholder="Email">
+          <input type="text" name="lastname" placeholder="Last Name">
+          <input type="text" name="firstname" placeholder="First Name">
+          <input type="text" name="signusername" placeholder="Username">
+          <input type="password" name="signpassword" placeholder="Password">
+          <input type="checkbox" checked="checked" name="agree-term">By continuing I agree to 2022 WDC's
+          <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+
+          <!-- <input type="submit" name="Create"> -->
+          <button type="button" name="Signup" onclick="signup()">Sign up</button>
+
+
+        </div>
+
+        <hr />
+    </div>
+        </div>
+
+        <!-- The column below will be for signing up / Return to Main page -->
+        <div class="bottom-container">
+            <div class="row">
+
+                <div class="col">
+
+                    <!-- Sign up area -->
+                    <div class="col">
+                        <a href="#" style="color: white;" class="btn" onclick="showLogin()">Back to Login</a>
+                    </div>
+
+                     <!-- Return main page -->
+                     <div class="col">
+                        <a href="#" style="color: white;" class="btn" onclick="returnMain()">Cancel</a>
+                    </div>
+
+                     <!-- Logout area -->
+                     <div class="col">
+                        <a href="#" style="color: white;" class="btn" onclick="logout()">Logout</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ADMIN LOGIN AREA!!!! -->
+<div id="Admin" class="modal">
+    <div class="modal-content">
+
+        <div class="container">
+
+        <div class="row">
+
+        <!-- Manually Login area -->
+        <h2 style="text-align: center;">WDC Social Event System (For Admin) </h2>
+
+        <!-- User information (Login) -->
+        <div class="col">
+
+            <input type="text" name="adminusername" placeholder="Username">
+            <input type="password" name="adminpassword" placeholder="Password">
+            <!-- <input type="submit" name="Login" onclick="login()"> -->
+            <button name="Login" onclick="adminlogin()">Login</button>
+
+        </div>
+
+        <hr />
+        </div>
+    </div>
+
+
+        <!-- The column below will be for signing up / Return to Main page -->
+        <div class="bottom-container">
+            <div class="row">
+
+                <div class="col">
+
+                    <!-- show USER SIGN IN area -->
+                    <div class="col">
+                        <a href="#" style="color: white;" class="btn" onclick="showLogin()">Back to Login</a>
+                    </div>
+
+                     <!-- Return main page -->
+                     <div class="col">
+                        <a href="#" style="color: white;" class="btn" onclick="returnMain()">Cancel</a>
+                    </div>
+
+                     <!-- Logout area -->
+                     <div class="col">
+                        <a href="#" style="color: white;" class="btn" onclick="logout()">Logout</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<footer id="footer">
+    <div class="social">
+      <p class="copyright">WDC Project 2022</p>
+
+     <!-- Facebook -->
+<a style="color: #3b5998;" href="#!" role="button">
+  <i class="fab fa-facebook-f fa-lg"></i>
+</a>
+
+<!-- Twitter -->
+<a style="color: #55acee;" href="#!" role="button">
+  <i class="fab fa-twitter fa-lg"></i>
+</a>
+
+<!-- Google -->
+<a style="color: #dd4b39;" href="#!" role="button">
+  <i class="fab fa-google fa-lg"></i>
+</a>
+
+<!-- Instagram -->
+<a style="color: #ac2bac;" href="#!" role="button">
+  <i class="fab fa-instagram fa-lg"></i>
+</a>
+
+</div>
+</footer>
+
+</body>
+</html>
