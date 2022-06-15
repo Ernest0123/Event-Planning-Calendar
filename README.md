@@ -8,7 +8,9 @@ then do:
 1. npm install
 2. npm install --save mysql
 3. npm install --save express-session
-4. also install the latest configuration files for the wdc course (Ian's files)
+4. npm install --save argon2
+5. Npm install --save goggle-auth-library
+6. also install the latest configuration files for the wdc course (Ian's files)
 
 and then start the database & load in project.sql
 
