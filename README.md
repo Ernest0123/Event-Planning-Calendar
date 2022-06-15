@@ -10,8 +10,7 @@ then do:
 3. npm install --save express-session
 4. npm install --save argon2
 5. Npm install --save google-auth-library
-6. also install the latest configuration files for the wdc course (Ian's files)
 
-and then start the database & load in project.sql
+and then start the database & load in Backup.sql
 
 After the preps, you can npm_start to start up the server
