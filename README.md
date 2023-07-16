@@ -1,7 +1,7 @@
 # WDCProject2022
 
-The actual server file is the UG Final folder.
-Everything else is just temp files as proof of our development progress.
+The actual server file is the **UG Final folder.**
+Everything else is just temp files as proof of the development progress.
 
 When testing, go into the UG Final folder
 then do:
