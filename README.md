@@ -1,4 +1,4 @@
-# WDCProject2022
+# A simple login system
 
 The actual server file is the **UG Final folder.**
 
