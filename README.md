@@ -1,6 +1,6 @@
 # A simple login system
 
-The actual server file is the **UG Final folder.**
+The actual server file is the **UG Final** folder.
 
 Everything else is just temp files as proof of the development progress.
 
